@@ -1,0 +1,329 @@
+
+Conexiones activas
+
+  Proto  Direcci¢n local          Direcci¢n remota        Estado           PID
+  TCP    0.0.0.0:80             0.0.0.0:0              LISTENING       7308
+  [httpd.exe]
+
+  TCP    0.0.0.0:135            0.0.0.0:0              LISTENING       1112
+  c:\windows\system32\WS2_32.dll
+  C:\WINDOWS\system32\RPCRT4.dll
+  c:\windows\system32\rpcss.dll
+  C:\WINDOWS\system32\svchost.exe
+  C:\WINDOWS\system32\ADVAPI32.dll
+  [svchost.exe]
+
+  TCP    0.0.0.0:443            0.0.0.0:0              LISTENING       1980
+  [TeamViewer_Service.exe]
+
+  TCP    0.0.0.0:445            0.0.0.0:0              LISTENING       4
+  [Sistema]
+
+  TCP    0.0.0.0:873            0.0.0.0:0              LISTENING       624
+  [rsync.exe]
+
+  TCP    0.0.0.0:3306           0.0.0.0:0              LISTENING       644
+  [mysqld.exe]
+
+  TCP    0.0.0.0:5938           0.0.0.0:0              LISTENING       1980
+  [TeamViewer_Service.exe]
+
+  TCP    0.0.0.0:15370          0.0.0.0:0              LISTENING       15680
+  [Telmex.exe]
+
+  TCP    0.0.0.0:15371          0.0.0.0:0              LISTENING       15680
+  [Telmex.exe]
+
+  TCP    0.0.0.0:58872          0.0.0.0:0              LISTENING       3860
+  [Skype.exe]
+
+  TCP    127.0.0.1:1032         0.0.0.0:0              LISTENING       3680
+  [alg.exe]
+
+  TCP    127.0.0.1:5152         0.0.0.0:0              LISTENING       928
+  [jqs.exe]
+
+  TCP    127.0.0.1:5354         0.0.0.0:0              LISTENING       136
+  [mDNSResponder.exe]
+
+  TCP    127.0.0.1:5939         0.0.0.0:0              LISTENING       1980
+  [TeamViewer_Service.exe]
+
+  TCP    127.0.0.1:9666         0.0.0.0:0              LISTENING       9676
+  [javaw.exe]
+
+  TCP    192.168.0.128:139      0.0.0.0:0              LISTENING       4
+  [Sistema]
+
+  TCP    192.168.0.128:27339    0.0.0.0:0              LISTENING       9676
+  [javaw.exe]
+
+  TCP    127.0.0.1:5939         127.0.0.1:55915        ESTABLISHED     1980
+  [TeamViewer_Service.exe]
+
+  TCP    127.0.0.1:12343        127.0.0.1:12344        ESTABLISHED     1980
+  [TeamViewer_Service.exe]
+
+  TCP    127.0.0.1:12344        127.0.0.1:12343        ESTABLISHED     1980
+  [TeamViewer_Service.exe]
+
+  TCP    127.0.0.1:55913        127.0.0.1:55914        ESTABLISHED     824
+  [TeamViewer.exe]
+
+  TCP    127.0.0.1:55914        127.0.0.1:55913        ESTABLISHED     824
+  [TeamViewer.exe]
+
+  TCP    127.0.0.1:55915        127.0.0.1:5939         ESTABLISHED     824
+  [TeamViewer.exe]
+
+  TCP    192.168.0.128:24933    149.5.45.6:43054       ESTABLISHED     3860
+  [Skype.exe]
+
+  TCP    192.168.0.128:30434    192.168.0.100:3128     ESTABLISHED     9996
+  [chrome.exe]
+
+  TCP    192.168.0.128:30795    192.168.0.100:3128     ESTABLISHED     11484
+  [iexplore.exe]
+
+  TCP    192.168.0.128:30898    192.168.0.100:3128     ESTABLISHED     9996
+  [chrome.exe]
+
+  TCP    192.168.0.128:30900    190.144.31.82:5938     ESTABLISHED     1980
+  [TeamViewer_Service.exe]
+
+  TCP    192.168.0.128:30933    192.168.0.100:3128     ESTABLISHED     9996
+  [chrome.exe]
+
+  TCP    192.168.0.128:30951    192.168.0.100:3128     ESTABLISHED     9996
+  [chrome.exe]
+
+  TCP    192.168.0.128:30955    192.168.0.100:3128     ESTABLISHED     9996
+  [chrome.exe]
+
+  TCP    192.168.0.128:30956    192.168.0.100:3128     ESTABLISHED     9996
+  [chrome.exe]
+
+  TCP    192.168.0.128:30957    192.168.0.100:3128     ESTABLISHED     9996
+  [chrome.exe]
+
+  TCP    192.168.0.128:30958    192.168.0.100:3128     ESTABLISHED     9996
+  [chrome.exe]
+
+  TCP    192.168.0.128:30961    192.168.0.100:3128     ESTABLISHED     9996
+  [chrome.exe]
+
+  TCP    192.168.0.128:30962    192.168.0.100:3128     ESTABLISHED     9996
+  [chrome.exe]
+
+  TCP    192.168.0.128:30963    192.168.0.100:3128     ESTABLISHED     9996
+  [chrome.exe]
+
+  TCP    192.168.0.128:30966    192.168.0.100:3128     ESTABLISHED     9996
+  [chrome.exe]
+
+  TCP    192.168.0.128:30985    192.168.0.100:3128     ESTABLISHED     9996
+  [chrome.exe]
+
+  TCP    192.168.0.128:30989    192.168.0.100:3128     ESTABLISHED     9996
+  [chrome.exe]
+
+  TCP    192.168.0.128:30990    192.168.0.100:3128     ESTABLISHED     9996
+  [chrome.exe]
+
+  TCP    192.168.0.128:30992    192.168.0.100:3128     ESTABLISHED     9996
+  [chrome.exe]
+
+  TCP    192.168.0.128:30996    192.168.0.100:3128     ESTABLISHED     9996
+  [chrome.exe]
+
+  TCP    192.168.0.128:31003    192.168.0.100:3128     ESTABLISHED     9996
+  [chrome.exe]
+
+  TCP    192.168.0.128:31004    192.168.0.100:3128     ESTABLISHED     9996
+  [chrome.exe]
+
+  TCP    192.168.0.128:31005    192.168.0.100:3128     ESTABLISHED     9996
+  [chrome.exe]
+
+  TCP    192.168.0.128:31006    192.168.0.100:3128     ESTABLISHED     9996
+  [chrome.exe]
+
+  TCP    192.168.0.128:31007    192.168.0.100:3128     ESTABLISHED     9996
+  [chrome.exe]
+
+  TCP    192.168.0.128:31008    192.168.0.100:3128     ESTABLISHED     9996
+  [chrome.exe]
+
+  TCP    192.168.0.128:31009    192.168.0.100:3128     ESTABLISHED     9996
+  [chrome.exe]
+
+  TCP    192.168.0.128:31011    192.168.0.100:3128     ESTABLISHED     9996
+  [chrome.exe]
+
+  TCP    192.168.0.128:31012    192.168.0.100:3128     ESTABLISHED     9996
+  [chrome.exe]
+
+  TCP    192.168.0.128:31014    192.168.0.100:3128     ESTABLISHED     9996
+  [chrome.exe]
+
+  TCP    192.168.0.128:31015    192.168.0.100:3128     ESTABLISHED     9996
+  [chrome.exe]
+
+  TCP    192.168.0.128:31016    192.168.0.100:3128     ESTABLISHED     9996
+  [chrome.exe]
+
+  TCP    192.168.0.128:31019    192.168.0.100:3128     ESTABLISHED     9996
+  [chrome.exe]
+
+  TCP    192.168.0.128:31021    192.168.0.100:80       ESTABLISHED     9996
+  [chrome.exe]
+
+  TCP    192.168.0.128:31022    192.168.0.100:3128     ESTABLISHED     9996
+  [chrome.exe]
+
+  TCP    192.168.0.128:31027    192.168.0.100:80       ESTABLISHED     9996
+  [chrome.exe]
+
+  TCP    192.168.0.128:41903    213.146.189.205:12350  ESTABLISHED     3860
+  [Skype.exe]
+
+  TCP    192.168.0.128:48844    192.168.0.100:139      ESTABLISHED     4
+  [Sistema]
+
+  TCP    192.168.0.128:49696    192.168.0.100:445      ESTABLISHED     4
+  [Sistema]
+
+  TCP    192.168.0.128:59611    192.168.0.100:22       ESTABLISHED     3580
+  [putty.exe]
+
+  TCP    127.0.0.1:48188        127.0.0.1:3306         CLOSE_WAIT      1140
+  [httpd.exe]
+
+  TCP    127.0.0.1:48477        127.0.0.1:3306         CLOSE_WAIT      1140
+  [httpd.exe]
+
+  TCP    192.168.0.128:29103    192.168.0.100:3128     CLOSE_WAIT      2540
+  [YouSendIt.exe]
+
+  TCP    192.168.0.128:31002    208.131.157.72:110     TIME_WAIT       0
+  TCP    192.168.0.128:31018    192.168.0.100:3128     TIME_WAIT       0
+  TCP    192.168.0.128:31024    208.131.157.72:110     TIME_WAIT       0
+  TCP    192.168.0.128:31026    208.131.157.72:110     TIME_WAIT       0
+  UDP    0.0.0.0:15370          *:*                                    15680
+  [Telmex.exe]
+
+  UDP    0.0.0.0:500            *:*                                    856
+  [lsass.exe]
+
+  UDP    0.0.0.0:445            *:*                                    4
+  [Sistema]
+
+  UDP    0.0.0.0:427            *:*                                    11260
+  C:\WINDOWS\system32\WS2_32.dll
+  c:\archivos de programa\hp\digital imaging\bin\hpslpsvc32.dll
+  -- componentes desconocidos --
+  C:\WINDOWS\system32\xpsp2res.dll
+  -- componentes desconocidos --
+  C:\WINDOWS\system32\USER32.dll
+  [svchost.exe]
+
+  UDP    0.0.0.0:1187           *:*                                    15680
+  [Telmex.exe]
+
+  UDP    0.0.0.0:1025           *:*                                    136
+  [mDNSResponder.exe]
+
+  UDP    0.0.0.0:58872          *:*                                    3860
+  [Skype.exe]
+
+  UDP    0.0.0.0:4500           *:*                                    856
+  [lsass.exe]
+
+  UDP    0.0.0.0:38701          *:*                                    12092
+  [spoolsv.exe]
+
+  UDP    127.0.0.1:123          *:*                                    1248
+  c:\windows\system32\WS2_32.dll
+  c:\windows\system32\w32time.dll
+  ntdll.dll
+  C:\WINDOWS\system32\kernel32.dll
+  [svchost.exe]
+
+  UDP    127.0.0.1:36864        *:*                                    15868
+  [OUTLOOK.EXE]
+
+  UDP    127.0.0.1:50497        *:*                                    3860
+  [Skype.exe]
+
+  UDP    127.0.0.1:37149        *:*                                    10984
+  [opera.exe]
+
+  UDP    127.0.0.1:57627        *:*                                    11484
+  [iexplore.exe]
+
+  UDP    127.0.0.1:50941        *:*                                    1248
+  c:\windows\system32\WS2_32.dll
+  c:\windows\system32\WINHTTP.dll
+  C:\WINDOWS\system32\upnp.dll
+  C:\WINDOWS\system32\RPCRT4.dll
+  C:\WINDOWS\system32\ole32.dll
+  [svchost.exe]
+
+  UDP    127.0.0.1:1026         *:*                                    624
+  [rsync.exe]
+
+  UDP    127.0.0.1:56024        *:*                                    824
+  [TeamViewer.exe]
+
+  UDP    127.0.0.1:50857        *:*                                    3860
+  [Skype.exe]
+
+  UDP    127.0.0.1:1900         *:*                                    1612
+  c:\windows\system32\WS2_32.dll
+  c:\windows\system32\ssdpsrv.dll
+  ntdll.dll
+  C:\WINDOWS\system32\kernel32.dll
+  [svchost.exe]
+
+  UDP    192.168.0.128:1900     *:*                                    10984
+  [opera.exe]
+
+  UDP    192.168.0.128:1900     *:*                                    1612
+  c:\windows\system32\WS2_32.dll
+  c:\windows\system32\ssdpsrv.dll
+  ntdll.dll
+  C:\WINDOWS\system32\kernel32.dll
+  [svchost.exe]
+
+  UDP    192.168.0.128:36389    *:*                                    10984
+  [opera.exe]
+
+  UDP    192.168.0.128:5353     *:*                                    136
+  [mDNSResponder.exe]
+
+  UDP    192.168.0.128:51125    *:*                                    3508
+  [DNSCST.exe]
+
+  UDP    192.168.0.128:123      *:*                                    1248
+  c:\windows\system32\WS2_32.dll
+  c:\windows\system32\w32time.dll
+  ntdll.dll
+  C:\WINDOWS\system32\kernel32.dll
+  [svchost.exe]
+
+  UDP    192.168.0.128:427      *:*                                    11260
+  C:\WINDOWS\system32\WS2_32.dll
+  c:\archivos de programa\hp\digital imaging\bin\hpslpsvc32.dll
+  -- componentes desconocidos --
+  C:\WINDOWS\system32\kernel32.dll
+  [svchost.exe]
+
+  UDP    192.168.0.128:138      *:*                                    4
+  [Sistema]
+
+  UDP    192.168.0.128:1068     *:*                                    3508
+  [DNSCST.exe]
+
+  UDP    192.168.0.128:137      *:*                                    4
+  [Sistema]
+
