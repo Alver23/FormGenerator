@@ -5,7 +5,7 @@ class TemplateEngineHandler {
 	var $engineParams;
 	var $templateName;
 
-	function TemplateEngineHandler($engineObj) {
+	function __construct($engineObj) {
 		if (!is_object($engineObj))
 			die("The engine object is not a valid object");
 
