@@ -74,11 +74,16 @@ if($_POST){
 			#Finalizamos el form
 			$print .= $form->form_go("Guardar","Limpiar");
 			$print .= $form->form_end();
+			if(!file_exists("templates/views/")){
+				if(!mkdir("templates/views/", 0777, true)){
+					die('Fallo al crear las carpetas...');
+				}
+			}
 			#Generar Archivo cshtml
-			if (file_exists("templates/views/".$_POST['tabla'].".php")) {
-				unlink("templates/views/".$_POST['tabla'].".php");
+			if (file_exists("templates/views/".$_POST['tabla']."Form.php")) {
+				unlink("templates/views/".$_POST['tabla']."Form.php");
 			}			
-			$fp = fopen("templates/views/".$_POST['tabla'].".php","w+");
+			$fp = fopen("templates/views/".$_POST['tabla']."Form.php","w+");
 			fwrite($fp, $print);
 			fclose($fp);
 			
@@ -107,22 +112,24 @@ if($_POST){
 			}
 			
 			#Generamos el Guardar
-			//if(@$_POST['guardar']=="on"){
-				$jquery .= $Javascript->form_validate($_POST['tabla'], $_POST['campoName'], $_POST['obligatorio']);
-				$jquery .= "\n \n";
-			//}
+			$jquery .= $Javascript->form_validate($_POST['tabla'], $_POST['campoName'], $_POST['obligatorio']);
+			$jquery .= "\n \n";
 						
 			#Finalizamos el Dom
 			$jquery .= $Javascript->form_end();
 			
 			#crear archivo Javascript
-			if (file_exists("templates/public/js/project/".$_POST['tabla'].".js")){
-				unlink("templates/public/js/project/".$_POST['tabla'].".js");
+			if(!file_exists("templates/js/")){
+				if(!mkdir("templates/js/", 0777, true)){
+					die('Fallo al crear las carpetas...');
+				}
 			}
-			$fp = fopen("templates/public/js/project/".$_POST['tabla'].".js","w");
+			if (file_exists("templates/js/".$_POST['tabla'].".js")){
+				unlink("templates/js/".$_POST['tabla'].".js");
+			}
+			$fp = fopen("templates/js/".$_POST['tabla'].".js","w");
 			fwrite($fp,$jquery);
 			fclose($fp);
-			
 			
 			//Creacion de controlador basico
 			$rstIndex = $database->showIndex($_POST['tabla']);
@@ -140,10 +147,15 @@ if($_POST){
 			
 			$control .= $Controller->close_php();
 			
-			if (file_exists("templates/".$_POST['tabla']."Controller.php")) {
-				unlink("templates/".$_POST['tabla']."Controller.php");
+			if(!file_exists("templates/controller/")){
+				if(!mkdir("templates/controller/", 0777, true)){
+					die('Fallo al crear las carpetas...');
+				}
 			}
-			$fp = fopen("templates/".$_POST['tabla']."Controller.php","x");
+			if (file_exists("templates/controller/".$_POST['tabla']."Controller.php")) {
+				unlink("templates/controller/".$_POST['tabla']."Controller.php");
+			}
+			$fp = fopen("templates/controller/".$_POST['tabla']."Controller.php","x");
 			fwrite($fp,$control);
 			fclose($fp);
 			
@@ -153,6 +165,11 @@ if($_POST){
 			$modelos .= $Model->modelPaginate($_POST['tabla'], $_POST['campoName'], $_POST['mostrarData']);
 			$modelos .= $Model->closeModel();
 			
+			if(!file_exists("templates/lib/")){
+				if(!mkdir("templates/lib/", 0777, true)){
+					die('Fallo al crear las carpetas...');
+				}
+			}
 			if (file_exists("templates/lib/".$_POST['tabla']."Model.php")) {
 				unlink("templates/lib/".$_POST['tabla']."Model.php");
 			}
@@ -162,7 +179,6 @@ if($_POST){
 			
 			die(json_encode("Formularios y Javascript creados correctamente"));
 	}
-	
 }
 if($sw==0){
 	$rs = $database->listarTables(DATABASE);
