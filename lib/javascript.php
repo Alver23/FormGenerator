@@ -17,7 +17,7 @@ class Javascript{
 		$jquery .= "\t	minChars: 0, \n";
 		$jquery .= "\t	source: function(request, response) { \n";
 		$jquery .= "\t		$.ajax({ \n";
-		$jquery .= "\t			url: 'menues', \n";
+		$jquery .= "\t			url: window.location.pathname.substring(1), \n";
 		$jquery .= "\t			dataType: 'json', \n";
 		$jquery .= "\t			type: 'POST', \n";
 		$jquery .= "\t			data: { \n";
@@ -50,32 +50,30 @@ class Javascript{
 	function form_validate($table, $sql, $opc){
 		$cant = count($sql);
 		$jquery = "";
-		$jquery .= "	var v = $('#".$table."').validate({ \n";
-		$jquery .= "\t		rules : { \n";
+		$jquery .= "\t var v = $('#".$table."').validate({ \n";
+		$jquery .= "\t	rules : { \n";
 		for($x=1; $x<$cant; $x++){
 			if($opc[$x]=="si"){
-				$jquery .= "\t ".$sql[$x].": {required: true}, \n";
+				$jquery .= "\t \t ".$sql[$x].": {required: true}, \n";
 			}
 		}
-		$jquery .= "\t				}, \n";
-		$jquery .= "\t				errorElement: \"div\", \n";
-		$jquery .= "\t				submitHandler : function(form) {\n";
-		$jquery .= "\t					$(form).ajaxSubmit({\n";
-		$jquery .= "\t						dataType : 'json',\n";
-		$jquery .= "\t						type: 'post',";
-		$jquery .= "\t						url: '".$table."',";
-		$jquery .= "\t						success : function(obj,statusText, xhr, $"."form) { \n";
-		$jquery .= "\t							t".ucwords($table).".fnClearTable(true); \n";
-		$jquery .= "\t							toastr[obj.type](obj.msg);";
-		
-		$jquery .= "var content = $(\"#divform\"), button = $(\"#newform\"), table = $(\"#divtable\");";
-		$jquery .= "table.slideDown(2000); content.slideUp(2000);";
-		
-		$jquery .= "\t							$('#".$table."')[0].reset();\n";
-		$jquery .= "\t						} \n";
-		$jquery .= "\t			}); \n";
-		$jquery .= "\t		  } \n";
-		$jquery .= "	});\n";
+		$jquery .= "\t }, \n";
+		$jquery .= "\t \t errorElement: \"div\", \n";
+		$jquery .= "\t \t submitHandler : function(form) {\n";
+		$jquery .= "\t \t $(form).ajaxSubmit({\n";
+		$jquery .= "\t \t dataType : 'json',\n";
+		$jquery .= "\t \t	type: 'post', \n";
+		$jquery .= "\t \t	url: window.location.pathname.substring(1), \n";
+		$jquery .= "\t \t   success : function(obj,statusText, xhr, $"."form) { \n";
+		$jquery .= "\t \t 	t".ucwords($table).".fnClearTable(true); \n";
+		$jquery .= "\t \t	toastr[obj.type](obj.msg); \n";
+		$jquery .= "\t \t   var content = $(\"#divform\"), button = $(\"#newform\"), table = $(\"#divtable\"); \n";
+		$jquery .= "\t \t   table.slideDown(2000); \n \t \t \t content.slideUp(2000); \n";
+		$jquery .= "\t \t		$('#".$table."')[0].reset(); \n";
+		$jquery .= "\t \t	} \n";
+		$jquery .= "\t \t	}); \n";
+		$jquery .= "\t \t   } \n";
+		$jquery .= "\t });\n";
 		return $jquery;
 	}
 	
@@ -84,20 +82,20 @@ class Javascript{
 		$jquery ="";
 		$jquery .= "\t  $(document).on('click', '.delete', function(){ \n";
 		$jquery .= "\t	var id = $(this).attr('rel'); \n";
-		$jquery .= "if (id == '') { \n";
+		$jquery .= "\t \t if (id == '') { \n";
     	$jquery .= "\t \t	toastr['error']('A ocurrido un error al cargar el Javascript de la Pagina, comuniquese con el equipo de it@latinoaustralia.com'); \n";
-    	$jquery .= "\t \t	\t return false; \n";
-    	$jquery .= "} \n";
+    	$jquery .= "\t \t   return false; \n";
+    	$jquery .= "\t \t } \n";
 		
-		$jquery .= "bootbox.confirm('Estas seguro? que quieres eliminar el banner', function(result) { \n";
-		$jquery .= "\t	if (result) { \n";
-		$jquery .= "\t \t \$.post('".$table."', {act:'delete',id:id}, function(obj){ \n";
+		$jquery .= "\t \t bootbox.confirm('Estas seguro? que quieres eliminar el banner', function(result) { \n";
+		$jquery .= "\t \t if (result) { \n";
+		$jquery .= "\t \t \$.post(window.location.pathname.substring(1), {act:'delete',id:id}, function(obj){ \n";
 		$jquery .= "\t \t toastr[obj.type](obj.msg); \n";
 		$jquery .= "\t \t \t t".ucwords($table).".fnClearTable(true); \n";
-		$jquery .= "  },'json'); \n";
-		$jquery .= "} \n";
-		$jquery .= "}); \n";
-		$jquery .= "}); \n";
+		$jquery .= "\t \t },'json'); \n";
+		$jquery .= "\t \t } \n";
+		$jquery .= "\t \t }); \n";
+		$jquery .= "\t }); \n";
 		return $jquery;
 	}
 	
@@ -106,27 +104,30 @@ class Javascript{
 		$jquery ="";
 		$jquery .= "\t  $(document).on('click', '.edit', function(){ \n";
 		$jquery .= "\t	var cod = $(this).attr('rel'); \n";
-		$jquery .= "\t	$.post('".$table."', { act: 'edit', m: cod }, function (obj) {	\n";
+		$jquery .= "\t	$.post(window.location.pathname.substring(1), { act: 'edit', m: cod }, function (obj) {	\n";
+		$jquery .= "\t	$.each(obj.data, function(i, val){\n";
+		$jquery .= "\t \t \t $('#".$table." '+i).val(val); \n";
+		$jquery .= "\t	}); \n";
 		$jquery .= "\t	}, 'json'); \n";
 		$jquery .= "\t  }); \n";
 		return $jquery;
 	}
 	
 	function mostrarForm($tabla){
-		$form = "$(document).on('click', '#newform, #close', function(){ \n";
-		$form .="var content = $(\"#idForm\"), button = $(\"#newform\"), table = $(\"#divtable\"); \n";
+		$form = "\t $(document).on('click', '#newform, #close', function(){ \n";
+		$form .="\t \t var content = $(\"#idForm\"), button = $(\"#newform\"), table = $(\"#divtable\"); \n";
 		//$form .="	$('#$tabla')[0].reset(); \n";
 		//$form .="	Limipiar(); \n";
-		$form .="	if (content.is(':hidden')) { \n";
-		$form .="		button.html('Ocultar Formulario'); \n";
-		$form .="		table.slideUp(1000); \n";
-		$form .="		content.slideDown(1500); \n";
-		$form .="	}else{ \n";
-		$form .="		button.html('Mostrar Formulario'); \n";
-		$form .="		table.slideDown(1000); \n";
-		$form .="		content.slideUp(1000); \n";
-		$form .="	} \n";
-		$form .=" }); \n";
+		$form .="\t \t if (content.is(':hidden')) { \n";
+		$form .="\t \t \t button.html('Ocultar Formulario'); \n";
+		$form .="\t \t \t table.slideUp(1000); \n";
+		$form .="\t \t \t content.slideDown(1500); \n";
+		$form .="\t \t }else{ \n";
+		$form .="\t \t \t button.html('Mostrar Formulario'); \n";
+		$form .="\t \t \t table.slideDown(1000); \n";
+		$form .="\t \t \t content.slideUp(1000); \n";
+		$form .="\t \t } \n";
+		$form .="\t }); \n";
 		return $form;
 	}
 	
@@ -158,7 +159,7 @@ class Javascript{
 		$jquery .= "\t	}, \n";
 		$jquery .= "\t	'bProcessing' 		: true, \n";
 		$jquery .= "\t	'bServerSide' 		: true, \n";
-		$jquery .= "\t	'sAjaxSource' : '".$table."', \n";
+		$jquery .= "\t	'sAjaxSource' : window.location.pathname.substring(1), \n";
 		$jquery .= "\t	'fnServerParams': function (aoData) { \n";
 		$jquery .= "\t		aoData.push({'name': 'act', 'value': 'listar'}); \n";
 		$jquery .= "\t	}, \n";

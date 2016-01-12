@@ -1,16 +1,16 @@
 $(document).ready(function() { 
-$(document).on('click', '#newform, #close', function(){ 
-var content = $("#idForm"), button = $("#newform"), table = $("#divtable"); 
-	if (content.is(':hidden')) { 
-		button.html('Ocultar Formulario'); 
-		table.slideUp(1000); 
-		content.slideDown(1500); 
-	}else{ 
-		button.html('Mostrar Formulario'); 
-		table.slideDown(1000); 
-		content.slideUp(1000); 
-	} 
- }); 
+	 $(document).on('click', '#newform, #close', function(){ 
+	 	 var content = $("#idForm"), button = $("#newform"), table = $("#divtable"); 
+	 	 if (content.is(':hidden')) { 
+	 	 	 button.html('Ocultar Formulario'); 
+	 	 	 table.slideUp(1000); 
+	 	 	 content.slideDown(1500); 
+	 	 }else{ 
+	 	 	 button.html('Mostrar Formulario'); 
+	 	 	 table.slideDown(1000); 
+	 	 	 content.slideUp(1000); 
+	 	 } 
+	 }); 
 	 var tCategory = $('#table').dataTable({ 
 		'fnServerData': function ( sUrl, aoData, fnCallback, oSettings ) { 
 			oSettings.jqXHR = $.ajax( { 
@@ -34,7 +34,7 @@ var content = $("#idForm"), button = $("#newform"), table = $("#divtable");
 		}, 
 		'bProcessing' 		: true, 
 		'bServerSide' 		: true, 
-		'sAjaxSource' : 'category', 
+		'sAjaxSource' : window.location.pathname.substring(1), 
 		'fnServerParams': function (aoData) { 
 			aoData.push({'name': 'act', 'value': 'listar'}); 
 		}, 
@@ -63,43 +63,52 @@ var content = $("#idForm"), button = $("#newform"), table = $("#divtable");
  
 	  $(document).on('click', '.delete', function(){ 
 		var id = $(this).attr('rel'); 
-if (id == '') { 
+	 	 if (id == '') { 
 	 		toastr['error']('A ocurrido un error al cargar el Javascript de la Pagina, comuniquese con el equipo de it@latinoaustralia.com'); 
-	 			 return false; 
-} 
-bootbox.confirm('Estas seguro? que quieres eliminar el banner', function(result) { 
-		if (result) { 
-	 	 $.post('category', {act:'delete',id:id}, function(obj){ 
+	 	   return false; 
+	 	 } 
+	 	 bootbox.confirm('Estas seguro? que quieres eliminar el banner', function(result) { 
+	 	 if (result) { 
+	 	 $.post(window.location.pathname.substring(1), {act:'delete',id:id}, function(obj){ 
 	 	 toastr[obj.type](obj.msg); 
 	 	 	 tCategory.fnClearTable(true); 
-  },'json'); 
-} 
-}); 
-}); 
+	 	 },'json'); 
+	 	 } 
+	 	 }); 
+	 }); 
 
  
 	  $(document).on('click', '.edit', function(){ 
 		var cod = $(this).attr('rel'); 
-		$.post('category', { act: 'edit', m: cod }, function (obj) {	
+		$.post(window.location.pathname.substring(1), { act: 'edit', m: cod }, function (obj) {	
+		$.each(obj.data, function(i, val){
+	 	 	 $('#category '+i).val(val); 
+		}); 
 		}, 'json'); 
 	  }); 
 
  
-	var v = $('#category').validate({ 
-			rules : { 
-	 name: {required: true}, 
-					}, 
-					errorElement: "div", 
-					submitHandler : function(form) {
-						$(form).ajaxSubmit({
-							dataType : 'json',
-							type: 'post',							url: 'category',							success : function(obj,statusText, xhr, $form) { 
-								tCategory.fnClearTable(true); 
-								toastr[obj.type](obj.msg);var content = $("#divform"), button = $("#newform"), table = $("#divtable");table.slideDown(2000); content.slideUp(2000);								$('#category')[0].reset();
-							} 
-				}); 
-			  } 
-	});
+	 var v = $('#category').validate({ 
+		rules : { 
+	 	 name: {required: true}, 
+	 }, 
+	 	 errorElement: "div", 
+	 	 submitHandler : function(form) {
+	 	 $(form).ajaxSubmit({
+	 	 dataType : 'json',
+	 		type: 'post', 
+	 		url: window.location.pathname.substring(1), 
+	 	   success : function(obj,statusText, xhr, $form) { 
+	 	 	tCategory.fnClearTable(true); 
+	 		toastr[obj.type](obj.msg); 
+	 	   var content = $("#divform"), button = $("#newform"), table = $("#divtable"); 
+	 	   table.slideDown(2000); 
+ 	 	 	 content.slideUp(2000); 
+	 			$('#category')[0].reset(); 
+	 		} 
+	 		}); 
+	 	   } 
+	 });
 
  
 });

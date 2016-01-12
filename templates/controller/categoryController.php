@@ -1,5 +1,5 @@
 <?php 
-	 	 $categoryModel = new categoryModel(); 
+$categoryModel = new categoryModel(); 
 if(!empty($_POST)){ 
  
 	 #Guardar formulario 
@@ -19,6 +19,10 @@ if(!empty($_POST)){
 	 	 $categoryModel->cargarPorId($_POST['id']); 
 	 	 $categoryModel->delete(); 
 	 	 die(json_encode(array('msg'=>'El registro fue eliminado correctamente', 'type'=>'success'))); 
+	 } 
+	 #cargar para editar registro 
+	 if($_POST['act']=='edit'){ 
+	 	 die(json_encode(array('data'=>$categoryModel->cargarPorId($_POST['id'])))); 
 	 } 
 }else{ 
  

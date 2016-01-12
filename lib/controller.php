@@ -7,7 +7,7 @@ class Controller{
 	#Function: <ready Dom>
 	function open_php($tabla) {
 		@$jquery .= "<?php \n";
-		$jquery .= "\t \t \$".$tabla."Model = new ".$tabla."Model(); \n";
+		$jquery .= "\$".$tabla."Model = new ".$tabla."Model(); \n";
 		return $jquery;
 	}
 	
@@ -50,6 +50,14 @@ class Controller{
 		 $jquery .= "\t \t \$".$tabla."Model->cargarPorId(\$_POST['id']); \n";
 		 $jquery .= "\t \t \$".$tabla."Model->delete(); \n";
 		 $jquery .= "\t \t die(json_encode(array('msg'=>'El registro fue eliminado correctamente', 'type'=>'success'))); \n";
+		 $jquery .= "\t } \n";
+		return $jquery;
+	}
+	
+	function editController($tabla){
+		@$jquery .= "\t #cargar para editar registro \n";
+		 $jquery .= "\t if(\$_POST['act']=='edit'){ \n";
+		 $jquery .= "\t \t die(json_encode(array('data'=>\$".$tabla."Model->cargarPorId(\$_POST['id'])))); \n";
 		 $jquery .= "\t } \n";
 		return $jquery;
 	}

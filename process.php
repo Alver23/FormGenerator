@@ -43,7 +43,9 @@ if($_POST){
 		  if($_POST['utilizar'][$x]=="si"){
 		  	switch($_POST['type'][$x]){
 				  case "option": //Cargamos el select option con la tabla relacionada
-						$rSelect = $database->loadSelect($_POST['TablaR'][$x]); 
+						if(!empty($_POST['TablaR'][$x])){
+							$rSelect = $database->loadSelect($_POST['TablaR'][$x]); 
+						}
 						$print .= $form->form_select($_POST['campoName'][$x],$_POST['campoName'][$x],"1","[Select ".$_POST['campoName'][$x]."]",",","");
 					break;
 				  case "oculto":
@@ -90,7 +92,6 @@ if($_POST){
 			
 			#Iniciamos el Dom
 			$jquery .= $Javascript->Domm_start();
-			
 			$jquery .= $Javascript->mostrarForm($_POST['tabla']);
 			
 			#creamos Datatable Javascript
@@ -141,6 +142,7 @@ if($_POST){
 			$control .= $Controller->saveController($_POST['tabla'], $rstIndex[0]);
 			$control .= $Controller->listarController($_POST['campoName'], $_POST['mostrarData'], $_POST['tabla']);
 			$control .= $Controller->deleteController($_POST['tabla']);
+			$control .= $Controller->editController($_POST['tabla']);
 			$control .= $Controller->elsePost();
 			$control .= $Controller->renderTemplate($_POST['tabla']);
 			$control .= $Controller->endPost();
