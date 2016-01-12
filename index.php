@@ -130,11 +130,11 @@
 							  <select id="campos<?php echo $x; ?>" name="relacion[<?php echo $x; ?>]" class="campos form-control">
 								<option value="">[Campo id]</option>  	
 							  </select>
-							  <!--
+							  
 							  <select id="camposName<?php echo $x; ?>" name="relacionName[<?php echo $x; ?>]" class="campos form-control">
 								<option value="">[Campo id]</option>  	
 							  </select>
-							  -->
+							  
 							</td>
 							<td align="center"> 
 								Si <input type="radio" name="utilizar[<?php echo $x; ?>]" value="si" checked="checked" /> 
